@@ -8,15 +8,17 @@ class Menu extends Component {
     super(props);
     this.state = { activeTest: '' };
     this.handleClick = this.handleClick.bind(this);
+    this.pickTest = this.pickTest.bind(this);
   }
 
   handleClick(e) {
     if (this.props.isClicked) return;
     const lis = document.querySelectorAll('li');
+
     lis.forEach(li =>
       li !== e.target ? li.classList.add('goodbye') : li.classList.add('hello')
     );
-    //renterMenuItem func from App
+    //renderMenuItem func from App
     this.props.renderClickedItem(e.target.innerText);
   }
 
@@ -24,6 +26,24 @@ class Menu extends Component {
     return prevProps.isClicked !== this.props.isClicked
       ? this.setState({ activeTest: this.props.activeItem() })
       : '';
+  }
+
+  pickTest() {
+    switch (this.state.activeTest) {
+      case 'homa':
+        console.log('homa');
+        break;
+      case 'caCor':
+        console.log('caCorr');
+        break;
+      case 'caCr':
+        console.log('caCr');
+        break;
+      case 'prl':
+        console.log('prol');
+        break;
+      default:
+    }
   }
 
   render() {
@@ -40,7 +60,7 @@ class Menu extends Component {
               </div>
             );
           })}
-          <button>oblicz</button>
+          <button onClick={this.pickTest}>oblicz</button>
         </ul>
       </div>
     );

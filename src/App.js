@@ -12,6 +12,7 @@ class App extends Component {
       { testName: 'Odzysk Prolaktyny', shorthand: 'prl', inputs: 2 },
     ],
   };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -40,6 +41,7 @@ class App extends Component {
     return (
       <div>
         <Menu
+          //show list of items
           menuItems={this.props.tests.map(test => {
             return {
               name: test.testName,
