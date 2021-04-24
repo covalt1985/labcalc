@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
 import './style.css';
+import Input from '../Input/index';
 
 class Menu extends Component {
   constructor(props) {
     super(props);
+    this.state = { activeTest: '' };
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -14,7 +16,14 @@ class Menu extends Component {
     lis.forEach(li =>
       li !== e.target ? li.classList.add('goodbye') : li.classList.add('hello')
     );
-    this.props.clickedItem(e.target.innerText);
+    //renterMenuItem func from App
+    this.props.renderClickedItem(e.target.innerText);
+  }
+
+  componentDidUpdate(prevProps) {
+    return prevProps.isClicked !== this.props.isClicked
+      ? this.setState({ activeTest: this.props.activeItem() })
+      : '';
   }
 
   render() {
@@ -24,16 +33,14 @@ class Menu extends Component {
           {this.props.menuItems.map(item => {
             return (
               <div>
-                <li
-                  className={this.props.showStyle}
-                  key={item}
-                  onClick={this.handleClick}>
-                  {item}
+                <li key={item} onClick={this.handleClick}>
+                  {item.name}
                 </li>
-                <input type="number" />
+                <Input menuTest={item.shorthand} inputsNum={item.inputsNum} />
               </div>
             );
           })}
+          <button>oblicz</button>
         </ul>
       </div>
     );

@@ -39,11 +39,6 @@
   transition: all 0.3s ease;
   cursor: pointer;
 }
-@media only screen and (max-width: 350px) {
-  .wrapper ul li {
-    font-size: 20px;
-  }
-}
 
 .wrapper ul li::after {
   content: '';
@@ -80,8 +75,9 @@
 
 .wrapper ul li.hello {
   pointer-events: none;
-  margin: 0;
+  margin: auto;
   line-height: 2;
+  width: fit-content;
 }
 
 .show {
@@ -94,13 +90,16 @@ ul input {
   outline: none;
   transition: all 0.5s ease 500ms;
   height: 0;
-  position: absolute;
+  width: 0;
+  /*  position: absolute;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%); */
 }
 
-.hello + input {
+.hello + div input {
   height: 20px;
+  width: auto;
+  margin: 0 10px;
 }
 
 @keyframes show {
@@ -109,5 +108,11 @@ ul input {
   }
   100% {
     transform: scaleY(1);
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .wrapper ul li {
+    font-size: 20px;
   }
 }

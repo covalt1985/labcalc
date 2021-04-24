@@ -6,10 +6,10 @@ import Menu from './Components/Menu/index';
 class App extends Component {
   static defaultProps = {
     tests: [
-      'HOMA IR',
-      'Wapń Skorygowany',
-      'Wapń / g Kreatyniny',
-      'Odzysk Prolaktyny',
+      { testName: 'HOMA IR', shorthand: 'homa', inputs: 2 },
+      { testName: 'Wapń Skorygowany', shorthand: 'caCor', inputs: 2 },
+      { testName: 'Wapń / g Kreatyniny', shorthand: 'caCr', inputs: 2 },
+      { testName: 'Odzysk Prolaktyny', shorthand: 'prl', inputs: 2 },
     ],
   };
   constructor(props) {
@@ -19,10 +19,20 @@ class App extends Component {
       isClicked: false,
     };
     this.renderMenuItem = this.renderMenuItem.bind(this);
+    this.passShorthand = this.passShorthand.bind(this);
   }
 
+  //pass in prop to Menu to check which el was clicked
   renderMenuItem(item) {
     this.setState({ item: [item], isClicked: true });
+  }
+
+  //passes shorthand to Menu state
+  passShorthand() {
+    const activeTest = this.props.tests.filter(el =>
+      el.testName === this.state.item[0] ? el.shorthand : ''
+    );
+    return activeTest[0].shorthand;
   }
 
   render() {
@@ -30,8 +40,15 @@ class App extends Component {
     return (
       <div>
         <Menu
-          menuItems={[...this.props.tests]}
-          clickedItem={this.renderMenuItem}
+          menuItems={this.props.tests.map(test => {
+            return {
+              name: test.testName,
+              shorthand: test.shorthand,
+              inputsNum: test.inputs,
+            };
+          })}
+          renderClickedItem={this.renderMenuItem}
+          activeItem={this.passShorthand}
           isClicked={isClicked}
         />
       </div>
