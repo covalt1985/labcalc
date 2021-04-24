@@ -34,15 +34,6 @@ class App extends Component {
           clickedItem={this.renderMenuItem}
           isClicked={isClicked}
         />
-        {/*  {isClicked && (
-          <>
-            <Menu
-              isClicked={isClicked}
-              showStyle={'show'}
-              menuItems={[...this.state.item]}
-            />
-          </>
-        )} */}
       </div>
     );
   }
