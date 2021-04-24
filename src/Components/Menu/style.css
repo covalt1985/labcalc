@@ -17,7 +17,7 @@
 }
 
 .wrapper ul {
-  position: absolute;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,8 +30,7 @@
 }
 
 .wrapper ul li {
-  margin: 20px;
-  transition: all 0.3s ease-out;
+  margin: 10px;
   color: var(--white);
   text-decoration: none;
   font-size: 30px;
@@ -56,7 +55,10 @@
   top: 0;
   border-radius: 50px;
   transform: scaleY(0);
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  transition-property: transform, height;
+  transition-duration: 0.5s, 1s;
+  transition-delay: 0s, 1s;
   z-index: -1;
 }
 
@@ -66,4 +68,46 @@
 
 .wrapper ul li:hover {
   color: blue;
+}
+
+.wrapper ul li.goodbye {
+  transform: scale(0);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 0;
+}
+
+.wrapper ul li.hello {
+  pointer-events: none;
+  margin: 0;
+  line-height: 2;
+}
+
+.show {
+  animation: show 300ms ease-out;
+  pointer-events: none;
+}
+
+ul input {
+  border: none;
+  outline: none;
+  transition: all 0.5s ease 500ms;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.hello + input {
+  height: 20px;
+}
+
+@keyframes show {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
 }

@@ -9,6 +9,11 @@ class Menu extends Component {
   }
 
   handleClick(e) {
+    if (this.props.isClicked) return;
+    const lis = document.querySelectorAll('li');
+    lis.forEach(li =>
+      li !== e.target ? li.classList.add('goodbye') : li.classList.add('hello')
+    );
     this.props.clickedItem(e.target.innerText);
   }
 
@@ -18,9 +23,15 @@ class Menu extends Component {
         <ul className="menu">
           {this.props.menuItems.map(item => {
             return (
-              <li key={item} onClick={this.handleClick}>
-                {item}
-              </li>
+              <div>
+                <li
+                  className={this.props.showStyle}
+                  key={item}
+                  onClick={this.handleClick}>
+                  {item}
+                </li>
+                <input type="number" />
+              </div>
             );
           })}
         </ul>

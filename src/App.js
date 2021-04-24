@@ -29,18 +29,20 @@ class App extends Component {
     const isClicked = this.state.isClicked;
     return (
       <div>
-        {!isClicked && (
-          <Menu
-            menuItems={[...this.props.tests]}
-            clickedItem={this.renderMenuItem}
-          />
-        )}
-        {isClicked && (
-          <Menu
-            menuItems={[...this.state.item]}
-            clickedItem={this.renderMenuItem}
-          />
-        )}
+        <Menu
+          menuItems={[...this.props.tests]}
+          clickedItem={this.renderMenuItem}
+          isClicked={isClicked}
+        />
+        {/*  {isClicked && (
+          <>
+            <Menu
+              isClicked={isClicked}
+              showStyle={'show'}
+              menuItems={[...this.state.item]}
+            />
+          </>
+        )} */}
       </div>
     );
   }
