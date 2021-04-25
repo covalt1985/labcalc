@@ -88,6 +88,10 @@ li + div {
   height: fit-content;
 }
 
+.hide {
+  display: none;
+}
+
 .show {
   animation: show 300ms ease-out;
   pointer-events: none;
@@ -96,12 +100,13 @@ li + div {
 ul input {
   border: none;
   outline: none;
-  transition: all 0.5s ease 500ms;
   height: 0;
   width: 0;
+  transition: none;
 }
 
 .hello + div input {
+  transition: all 0.5s ease 500ms;
   height: 20px;
   width: auto;
   margin: 0 10px;

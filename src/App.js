@@ -21,6 +21,7 @@ class App extends Component {
     };
     this.renderMenuItem = this.renderMenuItem.bind(this);
     this.passShorthand = this.passShorthand.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   //pass in prop to Menu to check which el was clicked
@@ -33,7 +34,18 @@ class App extends Component {
     const activeTest = this.props.tests.filter(el =>
       el.testName === this.state.item[0] ? el.shorthand : ''
     );
-    return activeTest[0].shorthand;
+    return this.state.isClicked ? activeTest[0].shorthand : '';
+  }
+
+  reset() {
+    this.setState({ isClicked: false, item: '' });
+    const lis = document.querySelectorAll('li');
+    lis.forEach(li => {
+      li.classList.remove('goodbye', 'hello');
+    });
+    document.querySelectorAll('input').forEach(input => {
+      input.removeAttribute('disabled');
+    });
   }
 
   render() {
@@ -53,6 +65,9 @@ class App extends Component {
           activeItem={this.passShorthand}
           isClicked={isClicked}
         />
+        <button onClick={this.reset} style={{ position: 'relative' }}>
+          reset
+        </button>
       </div>
     );
   }

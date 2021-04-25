@@ -16,9 +16,15 @@ class Menu extends Component {
   handleTestClick(e) {
     if (this.props.isClicked) return;
     const lis = document.querySelectorAll('li');
+    const addHidingClasses = element => {
+      element.classList.add('goodbye');
+      Array.from(element.nextSibling.children).forEach(input =>
+        input.setAttribute('disabled', 'true')
+      );
+    };
 
     lis.forEach(li =>
-      li !== e.target ? li.classList.add('goodbye') : li.classList.add('hello')
+      li !== e.target ? addHidingClasses(li) : li.classList.add('hello')
     );
     //renderMenuItem func from App
     this.props.renderClickedItem(e.target.innerText);
@@ -53,7 +59,7 @@ class Menu extends Component {
 
   componentDidUpdate(prevProps) {
     return prevProps.isClicked !== this.props.isClicked
-      ? this.setState({ activeTest: this.props.activeItem() })
+      ? this.setState({ activeTest: this.props.activeItem(), result: '' })
       : '';
   }
 
@@ -63,7 +69,7 @@ class Menu extends Component {
         <ul className="menu">
           {this.props.menuItems.map(item => {
             return (
-              <div className="listWrapper">
+              <div>
                 <li key={item} onClick={this.handleTestClick}>
                   {item.name}
                 </li>
