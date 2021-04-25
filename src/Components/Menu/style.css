@@ -65,6 +65,13 @@
   color: blue;
 }
 
+.wrapper ul li.hello {
+  pointer-events: none;
+  margin: auto;
+  line-height: 2;
+  width: fit-content;
+}
+
 .wrapper ul li.goodbye {
   transform: scale(0);
   margin: 0;
@@ -73,11 +80,12 @@
   height: 0;
 }
 
-.wrapper ul li.hello {
-  pointer-events: none;
-  margin: auto;
-  line-height: 2;
-  width: fit-content;
+li + div {
+  height: 0;
+}
+
+.hello + div {
+  height: fit-content;
 }
 
 .show {
@@ -91,15 +99,20 @@ ul input {
   transition: all 0.5s ease 500ms;
   height: 0;
   width: 0;
-  /*  position: absolute;
-  left: 50%;
-  transform: translate(-50%); */
 }
 
 .hello + div input {
   height: 20px;
   width: auto;
   margin: 0 10px;
+}
+
+input::-webkit-inner-spin-button {
+  display: none;
+}
+
+input:placeholder-shown {
+  padding: 0 10px;
 }
 
 @keyframes show {
