@@ -53,18 +53,24 @@ class Menu extends Component {
       : '';
   }
 
+  resultChange() {
+    document.querySelector('#change').classList.toggle('changed');
+  }
+
   render() {
     return (
       <div className="wrapper">
         <ul className="menu">
           {this.props.menuItems.map(item => {
             return (
-              <>
-                <li key={item} onClick={this.handleTestClick}>
-                  {item.name}
-                </li>
-                <Input menuTest={item.shorthand} inputsNum={item.inputsNum} />
-              </>
+              <React.Fragment key={item.name}>
+                <li onClick={this.handleTestClick}>{item.name}</li>
+                <Input
+                  enter={this.handleButtonClick}
+                  menuTest={item.shorthand}
+                  inputsNum={item.inputsNum}
+                />
+              </React.Fragment>
             );
           })}
           <button
@@ -73,7 +79,8 @@ class Menu extends Component {
             Oblicz
           </button>
           <h1 className={this.props.isClicked ? 'clicked' : ''}>
-            Wynik:<span>{this.state.result}</span>
+            Wynik:
+            <span id="change">{this.state.result}</span>
           </h1>
         </ul>
       </div>

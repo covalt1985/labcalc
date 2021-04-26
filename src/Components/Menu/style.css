@@ -152,3 +152,12 @@ h1 {
   display: block;
   animation: var(--animate);
 }
+
+#change {
+  position: absolute;
+  animation: var(--animate);
+}
+
+.changed {
+  animation: var(--animate);
+}
