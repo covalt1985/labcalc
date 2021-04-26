@@ -45,6 +45,7 @@ class App extends Component {
     });
     document.querySelectorAll('input').forEach(input => {
       input.removeAttribute('disabled');
+      input.value = '';
     });
   }
 

@@ -14,3 +14,10 @@ export const prl = () => {
   const inputs = document.getElementsByClassName('prl');
   return Math.round((100 * (inputs[1].value * 2)) / inputs[0].value);
 };
+
+export const testPicker = {
+  homa: homa,
+  caCor: caCor,
+  caCr: caCr,
+  prl: prl,
+};

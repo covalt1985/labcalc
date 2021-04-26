@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './style.css';
 import Input from '../Input/index';
-import { homa, caCr, caCor, prl } from '../functions/index';
+import { testPicker } from '../functions/index';
 
 class Menu extends Component {
   constructor(props) {
@@ -38,22 +38,7 @@ class Menu extends Component {
     ) {
       console.log('not ok');
     } else {
-      this.setState({ result: this.pickTest() });
-    }
-  }
-
-  //func for button
-  pickTest() {
-    switch (this.state.activeTest) {
-      case 'homa':
-        return homa();
-      case 'caCor':
-        return caCor();
-      case 'caCr':
-        return caCr();
-      case 'prl':
-        return prl();
-      default:
+      this.setState({ result: testPicker[this.state.activeTest]() });
     }
   }
 
