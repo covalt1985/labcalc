@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { setPlaceholder } from '../functions/index';
+import './style.css';
 
 class Input extends Component {
   constructor(props) {

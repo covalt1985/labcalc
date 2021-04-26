@@ -67,8 +67,14 @@ class Menu extends Component {
               </>
             );
           })}
-          <button onClick={this.handleButtonClick}>oblicz</button>
-          <h1>Result:{this.state.result} </h1>
+          <button
+            className={`count ${this.props.isClicked ? 'clicked' : ''}`}
+            onClick={this.handleButtonClick}>
+            Oblicz
+          </button>
+          <h1 className={this.props.isClicked ? 'clicked' : ''}>
+            Wynik:<span>{this.state.result}</span>
+          </h1>
         </ul>
       </div>
     );

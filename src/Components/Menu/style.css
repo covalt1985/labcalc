@@ -1,7 +1,12 @@
 :root {
   --white: #fff;
+  --hide: none;
+  --low: 0;
+  --high: 1;
+  --animate: show 300ms ease-out;
 }
 
+/* overall menu style */
 .wrapper {
   position: fixed;
   top: 0;
@@ -21,6 +26,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   width: 100%;
   top: 50%;
   left: 50%;
@@ -66,10 +72,10 @@
 }
 
 .wrapper ul li.hello {
-  pointer-events: none;
-  margin: auto;
+  pointer-events: var(--hide);
   line-height: 2;
   width: fit-content;
+  font-size: 3rem;
 }
 
 .wrapper ul li.goodbye {
@@ -78,6 +84,12 @@
   padding: 0;
   overflow: hidden;
   height: 0;
+}
+
+/*  list style */
+
+.menu {
+  height: 80%;
 }
 
 li + div {
@@ -89,35 +101,12 @@ li + div {
 }
 
 .hide {
-  display: none;
+  display: var(--hide);
 }
 
 .show {
-  animation: show 300ms ease-out;
-  pointer-events: none;
-}
-
-ul input {
-  border: none;
-  outline: none;
-  height: 0;
-  width: 0;
-  transition: none;
-}
-
-.hello + div input {
-  transition: all 0.5s ease 500ms;
-  height: 20px;
-  width: auto;
-  margin: 0 10px;
-}
-
-input::-webkit-inner-spin-button {
-  display: none;
-}
-
-input:placeholder-shown {
-  padding: 0 10px;
+  animation: var(--animate);
+  pointer-events: var(--hide);
 }
 
 @keyframes show {
@@ -133,4 +122,33 @@ input:placeholder-shown {
   .wrapper ul li {
     font-size: 20px;
   }
+  .wrapper ul li.hello {
+    font-size: 1.5rem;
+    width: 100%;
+  }
+}
+
+/* result and  count button */
+
+h1 {
+  position: absolute;
+  bottom: 30%;
+  font-size: 4rem;
+  display: var(--hide);
+  color: var(--white);
+  letter-spacing: 8px;
+  font-weight: 500;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+
+.count {
+  position: absolute;
+  bottom: 53%;
+  display: var(--hide);
+}
+
+.clicked {
+  display: block;
+  animation: var(--animate);
 }
