@@ -1,25 +1,11 @@
 import React, { Component } from 'react';
 
+import { setPlaceholder } from '../functions/index';
+
 class Input extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-  }
-
-  setPlaceholder(test, counter) {
-    switch (test) {
-      case 'homa':
-        return counter === 0 ? 'Glukoza mg/dl' : 'Insulina uIU/ml';
-      case 'caCor':
-        return counter === 0 ? 'Wapń mg/dl' : 'Albumina g/l';
-      case 'caCr':
-        return counter === 0 ? 'Wapń w moczu mg/dl' : 'Kreat. w moczu mg/dl';
-      case 'prl':
-        return counter === 0 ? 'Prolaktyna' : 'Prolaktyna po precypitacji';
-
-      default:
-        return '';
-    }
   }
 
   createInputs() {
@@ -33,7 +19,7 @@ class Input extends Component {
             key={`${this.props.menuTest}${keyCounter}`}
             type="number"
             className={this.props.menuTest}
-            placeholder={this.setPlaceholder(this.props.menuTest, keyCounter)}
+            placeholder={setPlaceholder(this.props.menuTest, keyCounter)}
           />
         </>
       );

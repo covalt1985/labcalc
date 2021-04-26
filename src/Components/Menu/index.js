@@ -9,12 +9,12 @@ class Menu extends Component {
     super(props);
     this.state = { activeTest: '', result: '' };
     this.handleTestClick = this.handleTestClick.bind(this);
-    this.pickTest = this.pickTest.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
   }
 
   handleTestClick(e) {
     if (this.props.isClicked) return;
+
     const lis = document.querySelectorAll('li');
     const addHidingClasses = element => {
       element.classList.add('goodbye');
@@ -31,15 +31,20 @@ class Menu extends Component {
   }
 
   handleButtonClick() {
-    if (
-      Array.from(document.getElementsByClassName(this.state.activeTest)).some(
-        input => !input.value
-      )
-    ) {
-      console.log('not ok');
-    } else {
-      this.setState({ result: testPicker[this.state.activeTest]() });
+    //select active inputs
+    const inputValues = Array.from(
+      document.getElementsByClassName(this.state.activeTest)
+    );
+    let result = testPicker[this.state.activeTest]();
+
+    if (inputValues.some(input => !input.value)) {
+      result = '';
+      return;
     }
+    if (inputValues.some(input => input.value <= 0)) {
+      result = '';
+    }
+    this.setState({ result: result });
   }
 
   componentDidUpdate(prevProps) {
@@ -54,12 +59,12 @@ class Menu extends Component {
         <ul className="menu">
           {this.props.menuItems.map(item => {
             return (
-              <div>
+              <>
                 <li key={item} onClick={this.handleTestClick}>
                   {item.name}
                 </li>
                 <Input menuTest={item.shorthand} inputsNum={item.inputsNum} />
-              </div>
+              </>
             );
           })}
           <button onClick={this.handleButtonClick}>oblicz</button>

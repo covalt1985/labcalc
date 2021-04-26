@@ -21,3 +21,14 @@ export const testPicker = {
   caCr: caCr,
   prl: prl,
 };
+
+export const setPlaceholder = (test, counter) => {
+  const condition = counter === 0;
+  const placeholders = {
+    homa: condition ? 'Glukoza mg/dl' : 'Insulina uIU/ml',
+    caCor: condition ? 'Wapń mg/dl' : 'Albumina g/l',
+    caCr: condition ? 'Wapń w moczu mg/dl' : 'Kreat. w moczu mg/dl',
+    prl: condition ? 'Prolaktyna' : 'Prolaktyna po precypitacji',
+  };
+  return placeholders[test];
+};
