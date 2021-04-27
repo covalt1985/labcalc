@@ -21,21 +21,27 @@ class Input extends Component {
     while (inputs.length < this.props.inputsNum) {
       inputs.push(
         <React.Fragment key={`${this.props.menuTest}${keyCounter}`}>
-          <input
-            type="number"
-            className={this.props.menuTest}
-            placeholder={setPlaceholder(this.props.menuTest, keyCounter)}
-            onKeyPress={this.handleKeyPress}
-          />
+          <div>
+            <input
+              type="number"
+              className={this.props.menuTest}
+              onKeyPress={this.handleKeyPress}
+              disabled={
+                this.props.menuTest === this.props.activeTest ? false : true
+              }
+            />
+            <span>{setPlaceholder(this.props.menuTest, keyCounter)}</span>{' '}
+          </div>
         </React.Fragment>
       );
       keyCounter = keyCounter + 1;
     }
+
     return inputs;
   }
 
   render() {
-    return <div>{this.createInputs()}</div>;
+    return <div style={{ display: 'flex' }}>{this.createInputs()}</div>;
   }
 }
 

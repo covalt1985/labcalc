@@ -153,11 +153,21 @@ h1 {
   animation: var(--animate);
 }
 
-#change {
+span#change {
+  display: inline-block;
   position: absolute;
   animation: var(--animate);
 }
 
 .changed {
   animation: var(--animate);
+}
+
+.hello + div span {
+  display: block;
+  color: var(--white);
+  font-weight: 500;
+  font-size: 13px;
+  animation: var(--animate);
+  margin: 0 10px;
 }

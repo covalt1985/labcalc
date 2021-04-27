@@ -13,6 +13,10 @@ ul input {
   margin: 10px;
 }
 
+ul span {
+  display: none;
+}
+
 input::-webkit-inner-spin-button {
   display: none;
 }

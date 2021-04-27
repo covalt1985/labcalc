@@ -18,16 +18,14 @@ class Menu extends Component {
     const lis = document.querySelectorAll('li');
     const addHidingClasses = element => {
       element.classList.add('goodbye');
-      Array.from(element.nextSibling.children).forEach(input =>
-        input.setAttribute('disabled', 'true')
-      );
+      console.log(element.nextSibling.children);
     };
-
     lis.forEach(li =>
       li !== e.target ? addHidingClasses(li) : li.classList.add('hello')
     );
     //renderMenuItem func from App
     this.props.renderClickedItem(e.target.innerText);
+    console.log(document.querySelectorAll('input').classList);
   }
 
   handleButtonClick() {
@@ -69,6 +67,7 @@ class Menu extends Component {
                   enter={this.handleButtonClick}
                   menuTest={item.shorthand}
                   inputsNum={item.inputsNum}
+                  activeTest={this.state.activeTest}
                 />
               </React.Fragment>
             );
