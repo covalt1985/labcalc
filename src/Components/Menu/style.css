@@ -67,12 +67,14 @@
   z-index: -1;
 }
 
-.wrapper ul li:hover::after {
-  transform: scaleY(1);
-}
+@media (hover: hover) and (pointer: fine) {
+  .wrapper ul li:hover::after {
+    transform: scaleY(1);
+  }
 
-.wrapper ul li:hover {
-  color: black;
+  .wrapper ul li:hover {
+    color: black;
+  }
 }
 
 .wrapper ul li.hello {
@@ -122,7 +124,7 @@ li + div {
   }
 }
 
-@media only screen and (max-width: 350px), (max-height: 370px) {
+@media only screen and (max-width: 420px), (max-height: 370px) {
   .wrapper ul li {
     font-size: 20px;
   }
