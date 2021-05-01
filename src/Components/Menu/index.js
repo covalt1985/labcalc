@@ -56,15 +56,15 @@ class Menu extends Component {
     result.classList.add('clicked');
   }
 
-  focusInput(className) {
+  /* focusInput(className) {
     document.querySelector(`input.${className}`).focus();
-  }
+  } */
 
   componentDidUpdate(prevProps) {
     const activeTest = this.props.activeItem();
-    const isActiveTetstinState = this.state.activeTest;
+    //const isActiveTetstinState = this.state.activeTest;
 
-    isActiveTetstinState && this.focusInput(isActiveTetstinState);
+    //isActiveTetstinState && this.focusInput(isActiveTetstinState);
 
     return prevProps.isClicked !== this.props.isClicked
       ? this.setState({
