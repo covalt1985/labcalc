@@ -23,6 +23,7 @@ export const testPicker = {
 };
 
 export const setPlaceholder = (test, counter) => {
+  //left or right input?
   const condition = counter === 0;
   const placeholders = {
     homa: condition ? 'Glukoza mg/dl' : 'Insulina uIU/ml',

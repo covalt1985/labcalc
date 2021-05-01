@@ -6,62 +6,66 @@ import Menu from './Components/Menu/index';
 class App extends Component {
   static defaultProps = {
     tests: [
-      { testName: 'HOMA IR', shorthand: 'homa', inputs: 2, units: '' },
+      { testName: 'HOMA IR', shorthand: 'homa', inputs: 2, unit: '' },
       {
         testName: 'Wapń Skorygowany',
         shorthand: 'caCor',
         inputs: 2,
-        units: 'mg/dl',
+        unit: 'mg/dl',
       },
       {
         testName: 'Wapń / g Kreatyniny',
         shorthand: 'caCr',
         inputs: 2,
-        units: 'mg/g',
+        unit: 'mg/g',
       },
       {
         testName: 'Odzysk Prolaktyny',
         shorthand: 'prl',
         inputs: 2,
-        units: '%',
+        unit: '%',
       },
     ],
   };
 
   constructor(props) {
     super(props);
+
     this.state = {
       item: '',
       isClicked: false,
     };
+
     this.renderMenuItem = this.renderMenuItem.bind(this);
     this.passShorthand = this.passShorthand.bind(this);
     this.reset = this.reset.bind(this);
   }
 
-  //pass in prop to Menu to check which el was clicked
+  //checks which el was clicked and pass it in props to Menu
   renderMenuItem(item) {
     this.setState({ item: [item], isClicked: true });
   }
 
-  //passes shorthand to Menu's state
+  //pass shorthand and unit to Menu
   passShorthand() {
     const activeTest = this.props.tests.filter(el =>
-      el.testName === this.state.item[0] ? el.shorthand : ''
+      el.testName === this.state.item[0]
+        ? { shorthand: el.shorthand, unit: el.unit }
+        : ''
     );
 
-    return this.state.isClicked ? activeTest[0].shorthand : '';
+    return this.state.isClicked ? activeTest : '';
   }
 
+  //reset button
   reset() {
-    const lis = document.querySelectorAll('li');
+    const list = document.querySelectorAll('li');
 
-    lis.forEach(li => {
+    list.forEach(li => {
       li.classList.remove('goodbye', 'hello');
     });
 
     document.querySelectorAll('input').forEach(input => {
-      input.removeAttribute('disabled');
       input.value = '';
     });
 

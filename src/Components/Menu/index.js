@@ -7,55 +7,70 @@ import { testPicker } from '../functions/index';
 class Menu extends Component {
   constructor(props) {
     super(props);
-    this.state = { activeTest: '', result: '' };
+
+    this.state = { activeTest: '', result: '', unit: '' };
+
     this.handleTestClick = this.handleTestClick.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
   }
 
   handleTestClick(e) {
-    if (this.props.isClicked) return;
+    if (!this.props.isClicked) {
+      const list = document.querySelectorAll('li');
+      const addHidingClasses = element => {
+        element.classList.add('goodbye');
+      };
 
-    const lis = document.querySelectorAll('li');
-    const addHidingClasses = element => {
-      element.classList.add('goodbye');
-      console.log(element.nextSibling.children);
-    };
-    lis.forEach(li =>
-      li !== e.target ? addHidingClasses(li) : li.classList.add('hello')
-    );
-    //renderMenuItem func from App
-    this.props.renderClickedItem(e.target.innerText);
-    console.log(document.querySelectorAll('input').classList);
+      list.forEach(li =>
+        li !== e.target ? addHidingClasses(li) : li.classList.add('hello')
+      );
+      //renderMenuItem func from App
+      this.props.renderClickedItem(e.target.innerText);
+    }
+    return;
   }
 
   handleButtonClick() {
-    this.restartAnimation();
+    this.restartResultAnimation();
+
     //select active inputs
+    const unit = this.props.activeItem();
     const inputValues = Array.from(
       document.getElementsByClassName(this.state.activeTest)
     );
+    //imported func
     let result = testPicker[this.state.activeTest]();
 
-    if (inputValues.some(input => !input.value)) {
+    if (inputValues.some(input => !input.value || input.value <= 0)) {
       result = '';
       return;
     }
-    if (inputValues.some(input => input.value <= 0)) {
-      result = '';
-    }
-    this.setState({ result: result });
+    this.setState({ result: result, unit: unit[0].unit });
   }
 
-  restartAnimation() {
+  restartResultAnimation() {
     const result = document.querySelector('h1');
     result.classList.remove('clicked');
     void result.offsetWidth;
     result.classList.add('clicked');
   }
 
+  focusInput(className) {
+    document.querySelector(`input.${className}`).focus();
+  }
+
   componentDidUpdate(prevProps) {
+    const activeTest = this.props.activeItem();
+    const isActiveTetstinState = this.state.activeTest;
+
+    isActiveTetstinState && this.focusInput(isActiveTetstinState);
+
     return prevProps.isClicked !== this.props.isClicked
-      ? this.setState({ activeTest: this.props.activeItem(), result: '' })
+      ? this.setState({
+          activeTest: activeTest ? activeTest[0].shorthand : '', //active test must be set to enable input
+          result: '',
+          unit: '',
+        })
       : '';
   }
 
@@ -81,8 +96,9 @@ class Menu extends Component {
             onClick={this.handleButtonClick}>
             Oblicz
           </button>
+
           <h1 className={this.props.isClicked ? 'clicked' : ''}>
-            Wynik: {this.state.result}
+            {`Wynik: ${this.state.result} ${this.state.unit}`}
           </h1>
         </ul>
       </div>
