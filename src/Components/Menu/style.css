@@ -118,7 +118,7 @@ li + div {
   }
 }
 
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 350px), (max-height: 370px) {
   .wrapper ul li {
     font-size: 20px;
   }
@@ -130,11 +130,13 @@ li + div {
     font-size: 2rem;
   }
 }
+@media only screen and (max-height: 370px) {
+}
 
 /* result and  count button */
 
 h1 {
-  margin-top: 13vh;
+  margin-top: 8vh;
   bottom: 30%;
   font-size: 4rem;
   display: var(--hide);
@@ -146,9 +148,8 @@ h1 {
 }
 
 .count {
-  position: absolute;
-  bottom: 53%;
   display: var(--hide);
+  cursor: pointer;
 }
 
 .clicked {
@@ -163,4 +164,11 @@ h1 {
   font-size: 13px;
   animation: var(--animate);
   margin: 0 10px;
+}
+
+.buttonContainer {
+  margin-top: 40px;
+  display: flex;
+  width: 12em;
+  justify-content: space-between;
 }

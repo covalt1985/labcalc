@@ -38,7 +38,7 @@ class App extends Component {
 
     this.renderMenuItem = this.renderMenuItem.bind(this);
     this.passShorthand = this.passShorthand.bind(this);
-    this.reset = this.reset.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
   //checks which el was clicked and pass it in props to Menu
@@ -58,17 +58,7 @@ class App extends Component {
   }
 
   //reset button
-  reset() {
-    const list = document.querySelectorAll('li');
-
-    list.forEach(li => {
-      li.classList.remove('goodbye', 'hello');
-    });
-
-    document.querySelectorAll('input').forEach(input => {
-      input.value = '';
-    });
-
+  resetState() {
     this.setState({ isClicked: false, item: '' });
   }
 
@@ -88,10 +78,8 @@ class App extends Component {
           renderClickedItem={this.renderMenuItem}
           activeItem={this.passShorthand}
           isClicked={isClicked}
+          resetState={this.resetState}
         />
-        <button onClick={this.reset} style={{ position: 'relative' }}>
-          reset
-        </button>
       </div>
     );
   }

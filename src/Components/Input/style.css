@@ -20,7 +20,3 @@ ul span {
 input::-webkit-inner-spin-button {
   display: none;
 }
-
-input:placeholder-shown {
-  padding: 0 10px;
-}

@@ -12,6 +12,7 @@ class Menu extends Component {
 
     this.handleTestClick = this.handleTestClick.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   handleTestClick(e) {
@@ -67,14 +68,30 @@ class Menu extends Component {
 
     return prevProps.isClicked !== this.props.isClicked
       ? this.setState({
-          activeTest: activeTest ? activeTest[0].shorthand : '', //active test must be set to enable input
+          activeTest: activeTest ? activeTest[0].shorthand : '', //activeTest enables input
           result: '',
           unit: '',
         })
       : '';
   }
 
+  //reset button
+  reset() {
+    const list = document.querySelectorAll('li');
+
+    list.forEach(li => {
+      li.classList.remove('goodbye', 'hello');
+    });
+
+    document.querySelectorAll('input').forEach(input => {
+      input.value = '';
+    });
+
+    this.props.resetState();
+  }
+
   render() {
+    const buttonClass = `count ${this.props.isClicked ? 'clicked' : ''}`;
     return (
       <div className="wrapper">
         <ul className="menu">
@@ -91,12 +108,15 @@ class Menu extends Component {
               </React.Fragment>
             );
           })}
-          <button
-            className={`count ${this.props.isClicked ? 'clicked' : ''}`}
-            onClick={this.handleButtonClick}>
-            Oblicz
-          </button>
+          <section className="buttonContainer">
+            <button className={buttonClass} onClick={this.handleButtonClick}>
+              Oblicz
+            </button>
 
+            <button className={buttonClass} onClick={this.reset}>
+              Wróć
+            </button>
+          </section>
           <h1 className={this.props.isClicked ? 'clicked' : ''}>
             {`Wynik: ${this.state.result} ${this.state.unit}`}
           </h1>

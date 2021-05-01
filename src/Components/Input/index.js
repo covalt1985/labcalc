@@ -21,7 +21,7 @@ class Input extends Component {
     while (inputs.length < this.props.inputsNum) {
       inputs.push(
         <React.Fragment key={`${this.props.menuTest}${keyCounter}`}>
-          <div>
+          <div style={{ width: '100%' }}>
             <input
               type="number"
               className={this.props.menuTest}
