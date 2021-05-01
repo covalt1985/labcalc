@@ -126,12 +126,15 @@ li + div {
     font-size: 1.5rem;
     width: 100%;
   }
+  h1.clicked {
+    font-size: 2rem;
+  }
 }
 
 /* result and  count button */
 
 h1 {
-  position: absolute;
+  margin-top: 13vh;
   bottom: 30%;
   font-size: 4rem;
   display: var(--hide);
@@ -150,16 +153,6 @@ h1 {
 
 .clicked {
   display: block;
-  animation: var(--animate);
-}
-
-span#change {
-  display: inline-block;
-  position: absolute;
-  animation: var(--animate);
-}
-
-.changed {
   animation: var(--animate);
 }
 

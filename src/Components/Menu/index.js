@@ -29,6 +29,7 @@ class Menu extends Component {
   }
 
   handleButtonClick() {
+    this.restartAnimation();
     //select active inputs
     const inputValues = Array.from(
       document.getElementsByClassName(this.state.activeTest)
@@ -45,14 +46,17 @@ class Menu extends Component {
     this.setState({ result: result });
   }
 
+  restartAnimation() {
+    const result = document.querySelector('h1');
+    result.classList.remove('clicked');
+    void result.offsetWidth;
+    result.classList.add('clicked');
+  }
+
   componentDidUpdate(prevProps) {
     return prevProps.isClicked !== this.props.isClicked
       ? this.setState({ activeTest: this.props.activeItem(), result: '' })
       : '';
-  }
-
-  resultChange() {
-    document.querySelector('#change').classList.toggle('changed');
   }
 
   render() {
@@ -78,8 +82,7 @@ class Menu extends Component {
             Oblicz
           </button>
           <h1 className={this.props.isClicked ? 'clicked' : ''}>
-            Wynik:
-            <span id="change">{this.state.result}</span>
+            Wynik: {this.state.result}
           </h1>
         </ul>
       </div>

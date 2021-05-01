@@ -6,10 +6,25 @@ import Menu from './Components/Menu/index';
 class App extends Component {
   static defaultProps = {
     tests: [
-      { testName: 'HOMA IR', shorthand: 'homa', inputs: 2 },
-      { testName: 'Wapń Skorygowany', shorthand: 'caCor', inputs: 2 },
-      { testName: 'Wapń / g Kreatyniny', shorthand: 'caCr', inputs: 2 },
-      { testName: 'Odzysk Prolaktyny', shorthand: 'prl', inputs: 2 },
+      { testName: 'HOMA IR', shorthand: 'homa', inputs: 2, units: '' },
+      {
+        testName: 'Wapń Skorygowany',
+        shorthand: 'caCor',
+        inputs: 2,
+        units: 'mg/dl',
+      },
+      {
+        testName: 'Wapń / g Kreatyniny',
+        shorthand: 'caCr',
+        inputs: 2,
+        units: 'mg/g',
+      },
+      {
+        testName: 'Odzysk Prolaktyny',
+        shorthand: 'prl',
+        inputs: 2,
+        units: '%',
+      },
     ],
   };
 
