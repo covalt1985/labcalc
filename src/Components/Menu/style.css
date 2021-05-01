@@ -4,6 +4,10 @@
   --low: 0;
   --high: 1;
   --animate: show 300ms ease-out;
+  --input-bg-color: rgba(255, 255, 255, 0.05);
+  --border-color: rgba(0, 0, 0, 0.12);
+  --hover-color: #4a4a4a;
+  --focus-color: rgba(0, 149, 255, 1);
 }
 
 /* overall menu style */
@@ -149,7 +153,6 @@ h1 {
 
 .count {
   display: var(--hide);
-  cursor: pointer;
 }
 
 .clicked {
@@ -164,11 +167,29 @@ h1 {
   font-size: 13px;
   animation: var(--animate);
   margin: 0 10px;
+  min-width: 120px;
 }
 
 .buttonContainer {
   margin-top: 40px;
   display: flex;
-  width: 12em;
+  width: 17em;
   justify-content: space-between;
+}
+
+button.clicked {
+  font-size: 1em;
+  padding: 10px;
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--focus-color);
+  border-radius: 20px/50px;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  width: 100px;
+}
+
+button.clicked:hover {
+  background-color: var(--focus-color);
+  color: black;
 }
