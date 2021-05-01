@@ -72,7 +72,7 @@
 }
 
 .wrapper ul li:hover {
-  color: blue;
+  color: black;
 }
 
 .wrapper ul li.hello {
@@ -192,4 +192,5 @@ button.clicked {
 button.clicked:hover {
   background-color: var(--focus-color);
   color: black;
+  opacity: 0.6;
 }
