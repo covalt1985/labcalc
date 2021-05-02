@@ -9,7 +9,8 @@ ul input {
 .hello + div input {
   transform: scaleY(1);
   border: 1px solid var(--border-color);
-  transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+  transition: transform 500ms ease, box-shadow 500ms ease,
+    border-color 500ms ease;
   background-color: var(--input-bg-color);
   color: var(--white);
   border-radius: 5%;

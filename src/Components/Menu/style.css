@@ -46,7 +46,7 @@
   font-size: 30px;
   padding: 5px 10px;
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 300ms ease;
   cursor: pointer;
 }
 
@@ -60,10 +60,10 @@
   top: 0;
   border-radius: 50px;
   transform: scaleY(0);
-  transition: all 0.3s ease;
+  transition: all 300ms ease;
   transition-property: transform, height;
-  transition-duration: 0.5s, 1s;
-  transition-delay: 0s, 1s;
+  transition-duration: 500ms, 1000ms;
+  transition-delay: 0ms, 1000ms;
   z-index: -1;
 }
 
@@ -151,7 +151,7 @@ h1 {
   letter-spacing: 8px;
   font-weight: 500;
   width: fit-content;
-  transition: all 0.3s ease;
+  transition: all 300ms ease;
 }
 
 .count {
@@ -188,7 +188,7 @@ button.clicked {
   border: 2px solid var(--focus-color);
   border-radius: 20px/50px;
   cursor: pointer;
-  transition: all 0.3s ease-out;
+  transition: all 300ms ease-out;
   width: 100px;
 }
 
