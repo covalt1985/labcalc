@@ -141,7 +141,7 @@ li + div {
 
 @media only screen and (max-width: 420px), (max-height: 370px) {
   .wrapper ul li {
-    font-size: 20px;
+    font-size: 1.4rem;
   }
   .wrapper ul li.hello {
     font-size: 1.5rem;
