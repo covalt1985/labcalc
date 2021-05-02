@@ -83,7 +83,6 @@
 
 .wrapper ul li.hello {
   pointer-events: var(--hide);
-  line-height: 2;
   width: fit-content;
   font-size: 3rem;
 }
