@@ -123,13 +123,23 @@ li + div {
   }
 }
 
+@-webkit-keyframes show {
+  0% {
+    -webkit-transform: scaleY(0, 0);
+  }
+  100% {
+    -webkit-transform: scaleY(1, 1);
+  }
+}
+
 @media only screen and (max-width: 420px), (max-height: 370px) {
   .wrapper ul li {
-    font-size: 1.3rem;
+    transform: scale(1);
+    -webkit-transform: scaleY(1, 1);
   }
   .wrapper ul li.hello {
-    font-size: 1.45rem;
-    width: 100%;
+    transform: scale(0.8);
+    -webkit-transform: scaleY(0.8, 0.8);
   }
   h1.clicked {
     font-size: 2rem;
