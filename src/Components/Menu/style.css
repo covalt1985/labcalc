@@ -41,6 +41,7 @@
 }
 
 .wrapper ul li {
+  display: inline-block;
   margin: 10px;
   color: var(--white);
   text-decoration: none;
