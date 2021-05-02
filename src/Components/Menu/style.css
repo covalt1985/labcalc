@@ -86,10 +86,11 @@
 
 .wrapper ul li.goodbye {
   transform: scale(0);
-  margin: 0;
-  padding: 0;
+  /*  margin: 0;
+  padding: 0; */
   overflow: hidden;
-  height: 0;
+  display: none;
+  /*  height: 0; */
 }
 
 /*  list style */
