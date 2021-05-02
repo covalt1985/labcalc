@@ -11,8 +11,6 @@ ul input {
   border: 1px solid var(--border-color);
   transition: transform 500ms ease, box-shadow 500ms ease,
     border-color 500ms ease;
-  -webkit-transition: transform 500ms ease, box-shadow 500ms ease,
-    border-color 500ms ease;
   background-color: var(--input-bg-color);
   color: var(--white);
   border-radius: 5%;
