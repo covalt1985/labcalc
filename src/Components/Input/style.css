@@ -14,8 +14,7 @@ ul input {
   color: var(--white);
   border-radius: 5%;
   height: 40px;
-  min-width: 7rem;
-  font-size: 1rem;
+  width: 8rem;
   margin: 10px;
 }
 
