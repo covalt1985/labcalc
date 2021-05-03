@@ -41,7 +41,6 @@ class Menu extends Component {
     );
     //imported func
     let result = testPicker[this.state.activeTest]();
-    console.log(inputValues[0].value);
 
     if (inputValues.some(input => input.value < 0)) {
       result = 'błędne dane';
