@@ -41,11 +41,11 @@ class Menu extends Component {
     );
     //imported func
     let result = testPicker[this.state.activeTest]();
+    console.log(inputValues[0].value);
 
-    if (inputValues.some(input => !input.value)) {
-      result = 'brak danych';
-    } else if (result <= 0 || isNaN(result) || !isFinite(result))
-      result = 'błedne dane';
+    if (inputValues.some(input => input.value < 0)) {
+      result = 'błędne dane';
+    } else if (isNaN(result) || !isFinite(result)) result = 'błędne dane';
     this.setState({
       result: result,
       unit: result && !isNaN(result) ? unit[0].unit : '',
