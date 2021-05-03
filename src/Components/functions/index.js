@@ -4,7 +4,10 @@ export const homa = () => {
 };
 export const caCor = () => {
   const inputs = document.getElementsByClassName('caCor');
-  return (0.08 * (40 - inputs[1].value) + +inputs[0].value).toFixed(2);
+  const leftInput = inputs[0].value;
+  const rightInput = inputs[1].value;
+  if (leftInput > 0 && rightInput > 0)
+    return (0.08 * (40 - rightInput) + +leftInput).toFixed(2);
 };
 export const caCr = () => {
   const inputs = document.getElementsByClassName('caCr');
