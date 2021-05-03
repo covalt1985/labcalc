@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/labcalc/static/css/main.ebe77daf.chunk.css",
-    "main.js": "/labcalc/static/js/main.2ee55d29.chunk.js",
-    "main.js.map": "/labcalc/static/js/main.2ee55d29.chunk.js.map",
+    "main.css": "/labcalc/static/css/main.b3a1fcd8.chunk.css",
+    "main.js": "/labcalc/static/js/main.f9b72b99.chunk.js",
+    "main.js.map": "/labcalc/static/js/main.f9b72b99.chunk.js.map",
     "runtime-main.js": "/labcalc/static/js/runtime-main.4865a909.js",
     "runtime-main.js.map": "/labcalc/static/js/runtime-main.4865a909.js.map",
     "static/js/2.992088b8.chunk.js": "/labcalc/static/js/2.992088b8.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.ec5c1f9e.chunk.js": "/labcalc/static/js/3.ec5c1f9e.chunk.js",
     "static/js/3.ec5c1f9e.chunk.js.map": "/labcalc/static/js/3.ec5c1f9e.chunk.js.map",
     "index.html": "/labcalc/index.html",
-    "static/css/main.ebe77daf.chunk.css.map": "/labcalc/static/css/main.ebe77daf.chunk.css.map",
+    "static/css/main.b3a1fcd8.chunk.css.map": "/labcalc/static/css/main.b3a1fcd8.chunk.css.map",
     "static/js/2.992088b8.chunk.js.LICENSE.txt": "/labcalc/static/js/2.992088b8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.4865a909.js",
     "static/js/2.992088b8.chunk.js",
-    "static/css/main.ebe77daf.chunk.css",
-    "static/js/main.2ee55d29.chunk.js"
+    "static/css/main.b3a1fcd8.chunk.css",
+    "static/js/main.f9b72b99.chunk.js"
   ]
 }
