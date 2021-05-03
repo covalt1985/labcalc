@@ -11,6 +11,8 @@ class Input extends Component {
   }
 
   handleKeyPress(e) {
+    if (isNaN(e.key) && e.key !== '.') e.preventDefault();
+
     return e.key === 'Enter' ? this.props.enter() : '';
   }
 

@@ -42,11 +42,13 @@ class Menu extends Component {
     //imported func
     let result = testPicker[this.state.activeTest]();
 
-    if (inputValues.some(input => !input.value || input.value <= 0)) {
-      result = '';
-      return;
+    if (inputValues.some(input => !input.value)) {
+      result = 'brak danych';
     }
-    this.setState({ result: result, unit: unit[0].unit });
+    this.setState({
+      result: result,
+      unit: result && !isNaN(result) ? unit[0].unit : '',
+    });
   }
 
   restartResultAnimation() {
