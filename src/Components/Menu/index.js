@@ -44,7 +44,8 @@ class Menu extends Component {
 
     if (inputValues.some(input => !input.value)) {
       result = 'brak danych';
-    }
+    } else if (result <= 0 || isNaN(result) || !isFinite(result))
+      result = 'błedne dane';
     this.setState({
       result: result,
       unit: result && !isNaN(result) ? unit[0].unit : '',
