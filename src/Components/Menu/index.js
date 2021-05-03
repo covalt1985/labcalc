@@ -112,12 +112,11 @@ class Menu extends Component {
             );
           })}
           <section className="buttonContainer">
-            <button className={buttonClass} onClick={this.handleButtonClick}>
-              Oblicz
-            </button>
-
             <button className={buttonClass} onClick={this.reset}>
               Wróć
+            </button>
+            <button className={buttonClass} onClick={this.handleButtonClick}>
+              Oblicz
             </button>
           </section>
           <h1 className={this.props.isClicked ? 'clicked' : ''}>
