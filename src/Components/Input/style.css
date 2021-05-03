@@ -20,6 +20,10 @@ ul input {
   font-size: 16px;
 }
 
+.hello + div input.error {
+  border: 1px solid red;
+}
+
 ul span {
   display: none;
 }

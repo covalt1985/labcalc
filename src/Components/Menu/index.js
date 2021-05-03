@@ -42,9 +42,17 @@ class Menu extends Component {
     //imported func
     let result = testPicker[this.state.activeTest]();
 
-    if (inputValues.some(input => input.value < 0)) {
+    //check for errors
+    inputValues.map(input => {
+      return input.value <= 0 || !input.value || isNaN(input.value)
+        ? input.classList.add('error')
+        : input.classList.remove('error');
+    });
+
+    if (inputValues.some(input => input.value <= 0)) {
       result = 'błędne dane';
     } else if (isNaN(result) || !isFinite(result)) result = 'błędne dane';
+
     this.setState({
       result: result,
       unit: result && !isNaN(result) ? unit[0].unit : '',
@@ -58,15 +66,8 @@ class Menu extends Component {
     result.classList.add('clicked');
   }
 
-  /* focusInput(className) {
-    document.querySelector(`input.${className}`).focus();
-  } */
-
   componentDidUpdate(prevProps) {
     const activeTest = this.props.activeItem();
-    //const isActiveTetstinState = this.state.activeTest;
-
-    //isActiveTetstinState && this.focusInput(isActiveTetstinState);
 
     return prevProps.isClicked !== this.props.isClicked
       ? this.setState({
@@ -87,13 +88,14 @@ class Menu extends Component {
 
     document.querySelectorAll('input').forEach(input => {
       input.value = '';
+      input.classList.remove('error');
     });
-
     this.props.resetState();
   }
 
   render() {
     const buttonClass = `count ${this.props.isClicked ? 'clicked' : ''}`;
+
     return (
       <div className="wrapper">
         <ul className="menu">
@@ -110,6 +112,7 @@ class Menu extends Component {
               </React.Fragment>
             );
           })}
+
           <section className="buttonContainer">
             <button className={buttonClass} onClick={this.reset}>
               Wróć

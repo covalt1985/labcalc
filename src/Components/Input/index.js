@@ -11,7 +11,11 @@ class Input extends Component {
   }
 
   handleKeyPress(e) {
+    const value = e.target.value.toString();
+    const index = value.indexOf('.');
+
     if (e.key.toLowerCase() === 'e') e.preventDefault();
+    if (value.slice(index).length > 2) e.preventDefault();
 
     return e.key === 'Enter' ? this.props.enter() : '';
   }
