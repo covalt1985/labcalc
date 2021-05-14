@@ -6,8 +6,11 @@ import './style.css';
 class Input extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
     this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({ showinput: this.props.menuTest });
   }
 
   handleKeyPress(e) {
@@ -47,7 +50,11 @@ class Input extends Component {
   }
 
   render() {
-    return <div style={{ display: 'flex' }}>{this.createInputs()}</div>;
+    return (
+      this.state.showinput && (
+        <div style={{ display: 'flex' }}>{this.createInputs()}</div>
+      )
+    );
   }
 }
 
